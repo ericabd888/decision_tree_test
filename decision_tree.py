@@ -94,7 +94,8 @@ class DecisionTreeClassifier:
                             right.append(list(combineXY[i, :]))
                     left = np.array(left)
                     right =  np.array(right)
-                    tempGini = (left.shape[0]/y.shape[0])*self._gini(left[:, -1], n_classes) +                                 (right.shape[0]/y.shape[0])*self._gini(right[:, -1], n_classes)
+                    tempGini = (left.shape[0]/y.shape[0])*self._gini(left[:, -1], n_classes) + \
+                               (right.shape[0]/y.shape[0])*self._gini(right[:, -1], n_classes)
                     allGini.append(tuple([j, k, tempGini]))
                     tempGini = 0
                     left, right = [], []
@@ -118,7 +119,8 @@ class DecisionTreeClassifier:
                             right.append(list(combineXY[i, :]))
                     left = np.array(left)
                     right =  np.array(right)
-                    tempGini = (left.shape[0]/y.shape[0])*self._entropy(left[:, -1], n_classes) +                                 (right.shape[0]/y.shape[0])*self._entropy(right[:, -1], n_classes)
+                    tempGini = (left.shape[0]/y.shape[0])*self._entropy(left[:, -1], n_classes) + \
+                               (right.shape[0]/y.shape[0])*self._entropy(right[:, -1], n_classes)
                     allGini.append(tuple([j, k, tempGini]))
                     tempGini = 0
                     left, right = [], []
